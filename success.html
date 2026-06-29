@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembayaran Berhasil | GIA STORE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f9ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+/* Card */
+
+.success-card{
+    background:white;
+    width:420px;
+    text-align:center;
+    padding:45px 35px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+/* Logo */
+
+.logo img{
+    height:70px;
+    margin-bottom:20px;
+}
+
+/* Icon */
+
+.check{
+    width:100px;
+    height:100px;
+    margin:auto;
+    border-radius:50%;
+    background:#6eb5ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:55px;
+    margin-bottom:25px;
+}
+
+/* Text */
+
+h1{
+    color:#24496e;
+    margin-bottom:15px;
+}
+
+p{
+    color:#6483a0;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+/* Button */
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#6eb5ff;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#4ea4ff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="success-card">
+
+<div class="logo">
+<img src="logo.png" alt="GIA STORE">
+</div>
+
+<div class="check">
+✓
+</div>
+
+<h1>Pembayaran Berhasil!</h1>
+
+<p>
+
+Terima kasih telah berbelanja di <b>GIA STORE</b>.
+
+<br><br>
+
+Pesanan kamu sedang kami proses dan akan segera dikirim.
+
+</p>
+
+<button onclick="window.location.href='index.html'">
+
+Kembali ke Beranda
+
+</button>
+
+</div>
+
+<script>
+document.getElementById("paymentForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    alert("Pembayaran berhasil!\n\nTerima kasih telah berbelanja di GIA STORE.");
+
+    localStorage.removeItem("keranjang");
+
+    window.location.href="success.html";
+
+});
+</script>
+
+</body>
+</html>

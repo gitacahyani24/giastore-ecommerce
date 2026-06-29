@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kontak - GIA STORE</title>
+
+<style>
+
+/* ========================= */
+/* GLOBAL */
+/* ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f9ff;
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:#d8ecff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#2c5d8a;
+}
+
+.logo span{
+    color:#6eb5ff;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#24496e;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#6eb5ff;
+}
+
+.cart-box{
+    background:#6eb5ff;
+    color:white;
+    padding:10px 18px;
+    border-radius:30px;
+}
+
+/* ========================= */
+/* KONTAK */
+/* ========================= */
+
+#kontak{
+    padding:100px 8%;
+}
+
+.contact-container{
+    background:white;
+    border-radius:30px;
+    padding:60px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.contact-container h1{
+    color:#2c5d8a;
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.contact-container p{
+    color:#5f7d99;
+    margin-bottom:40px;
+}
+
+.contact-wrapper{
+    display:grid;
+    grid-template-columns:1fr 1.4fr;
+    gap:40px;
+}
+
+.contact-info{
+    background:#eef7ff;
+    border-radius:25px;
+    padding:35px;
+}
+
+.contact-info h2{
+    color:#24496e;
+    margin-bottom:20px;
+}
+
+.info-item{
+    background:white;
+    padding:18px;
+    margin-bottom:15px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* FORM */
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    padding:16px;
+    border-radius:12px;
+    border:1px solid #c8e2ff;
+    outline:none;
+    font-size:15px;
+}
+
+.contact-form button{
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#6eb5ff;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.contact-form button:hover{
+    background:#4ea4ff;
+}
+
+.hero-contact{
+    background:linear-gradient(to right,#eef7ff,#dceeff);
+    text-align:center;
+    padding:70px 20px;
+}
+
+.hero-contact h1{
+    font-size:48px;
+    color:#24496e;
+    margin-bottom:15px;
+}
+
+.hero-contact p{
+    color:#6483a0;
+    font-size:18px;
+}
+
+footer{
+    background:#d8ecff;
+    color:#24496e;
+    text-align:center;
+    padding:20px;
+    margin-top:60px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links{
+        gap:15px;
+    }
+
+    .contact-container{
+        padding:35px;
+    }
+
+    .contact-container h1{
+        font-size:36px;
+    }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">
+        GIA<span>STORE</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="kategori.html">Kategori</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+
+    </ul>
+
+    <div class="cart-box">
+        🛒 0
+    </div>
+
+</nav>
+
+<section class="hero-contact">
+
+    <h1>Hubungi GIA STORE</h1>
+
+    <p>
+        Kami siap membantu pertanyaan, kritik, maupun saran Anda.
+    </p>
+
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+
+    <div class="contact-container">
+
+        <h1>Hubungi Kami</h1>
+
+        <p>
+            Jika ada pertanyaan atau kritik dan saran,
+            silakan hubungi GIA STORE melalui form berikut.
+        </p>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+
+    <h2>Informasi Kontak</h2>
+
+    <div class="info-item">
+        📍 Bandung, Indonesia
+    </div>
+
+    <div class="info-item">
+        📧 giastore@gmail.com
+    </div>
+
+    <div class="info-item">
+        📱 0812-3456-7890
+    </div>
+
+    <div class="info-item">
+        🕒 Senin - Sabtu
+        <br>
+        08.00 - 20.00
+    </div>
+
+</div>
+    <form class="contact-form"id="contactForm">
+            <input type="text" placeholder="Nama Lengkap">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Subjek">
+            <textarea rows="6" placeholder="Pesan"></textarea>
+            <button type="submit">
+                Kirim Pesan
+            </button>
+
+        </form>
+</div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 GIA STORE. All Rights Reserved.</p>
+</footer>
+<script>
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    alert("✅ Terima kasih atas kritik dan saran Anda!\n\nPesan Anda berhasil dikirim.");
+
+    this.reset();
+
+});
+
+</script>
+</body>
+</html>
