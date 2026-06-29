@@ -1,0 +1,699 @@
+<style>
+/* ========================= */
+/* GLOBAL */
+/* ========================= */
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#f4f9ff;}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:18px 8%;background:#d8ecff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+
+/* LOGO */
+.logo img{height:50px;vertical-align:middle;}
+.logo{font-size:30px;font-weight:bold;color:#2c5d8a;}
+.logo span{color:#6eb5ff;}
+
+.nav-links{display:flex;list-style:none;gap:25px;}
+.nav-links a{text-decoration:none;color:#24496e;font-weight:bold;transition:0.3s;}
+.nav-links a:hover{color:#6eb5ff;}
+
+/* ========================= */
+/* HOME */
+/* ========================= */
+
+#home{min-height:100vh;display:flex;justify-content:space-between;align-items:center;padding:0 8%;background:linear-gradient(to right,#eef7ff,#dceeff);}
+
+/* TEXT */
+.home-text{width:50%;}
+.home-text h1{font-size:60px;color:#24496e;margin-bottom:20px;}
+.home-text p{color:#5f7d99;line-height:1.8;margin-bottom:30px;font-size:17px;}
+
+/* BUTTON */
+.home-text button{padding:14px 32px;border:none;border-radius:30px;background:#6eb5ff;color:white;font-size:16px;cursor:pointer;transition:0.3s;}
+.home-text button:hover{background:#4ea4ff;}
+
+/* ========================= */
+/* BANNER */
+/* ========================= */
+.banner-card img{width:100%;height:100%;object-fit:cover;}
+.banner{width:100%;display:flex;justify-content:center;}
+.banner-card{width:100%;height:100%;background:white;border-radius:30px;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.1);}
+
+/* ========================= */
+/* PRODUK */
+/* ========================= */
+
+.product-image{height:300px;overflow:hidden;}
+.product-image img{width:100%;height:100%;object-fit:cover;}
+#produk{padding:80px 8%;}
+.section-title{text-align:center;margin-bottom:50px;}
+.section-title h2{font-size:42px;color:#2c5d8a;margin-bottom:10px;}
+.section-title p{color:#6483a0;}
+
+/* GRID PRODUK */
+.product-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;}
+
+/* CARD */
+.product-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.08);transition:0.3s;}
+.product-card:hover{transform:translateY(-8px);}
+
+/* WARNA */
+.blue1{background:linear-gradient(135deg,#dbeeff,#8fc7ff);}
+.blue2{background:linear-gradient(135deg,#cde7ff,#78bfff);}
+.blue3{background:linear-gradient(135deg,#dff2ff,#93ccff);}
+
+/* INFO */
+.product-info{padding:22px;}
+.product-info h3{color:#24496e;margin-bottom:10px;}
+.product-info p{color:#6d86a0;line-height:1.6;margin-bottom:15px;font-size:14px;}
+.price{display:block;color:#4ea4ff;font-size:20px;font-weight:bold;margin-bottom:20px;}
+.add-to-cart { background: #007bff; color: white; border: none; width: 100%; }
+
+/* BUTTON */
+.product-info button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:12px;
+    background:#6eb5ff;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    font-size:15px;
+}
+
+.product-info button:hover{
+    background:#4ea4ff;
+}
+
+.cart-btn{
+    background:#6eb5ff;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
+}
+
+.cart-btn:hover{
+    background:#4ea4ff;
+}
+/*KERANJANG*/
+
+   .cart{
+    position:fixed;
+    top:90px;
+    right:-380px;
+    width:350px;
+    max-height:500px;
+    background:#ffffff;
+    border-radius:20px 0 0 20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+    padding:20px;
+    transition:.3s;
+    overflow-y:auto;
+    z-index:999;
+}
+
+.cart.show{
+    right:20px;
+}
+
+.cart h2{
+    color:#24496e;
+    margin-bottom:15px;
+}
+
+.close-cart{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    background:#6eb5ff;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.close-cart:hover{
+    background:#4ea4ff;
+}
+
+.checkout-btn{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    background:#2c5d8a;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.checkout-btn:hover{
+    background:#24496e;
+}
+
+.cart input,
+.cart select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #cfdff0;
+    border-radius:10px;
+    outline:none;
+    font-size:14px;
+}
+
+.cart input:focus,
+.cart select:focus{
+    border-color:#6eb5ff;
+}
+
+.item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#ffffff;
+    border-radius:15px;
+    padding:12px;
+    margin-bottom:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.item b{
+    color:#68adf1;
+}
+
+.item button{
+    background:#6eb5ff;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.item button:hover{
+    background:#4ea4ff;
+}
+.total-box{
+    margin-top:20px;
+    padding-top:15px;
+    border-top:2px solid #d8ecff;
+    color:#24496e;
+    font-weight:bold;
+}
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:768px){
+    .navbar{flex-direction:column;gap:15px;}
+    .nav-links{gap:15px;}
+
+    #home{flex-direction:column;justify-content:center;text-align:center;padding:100px 8%;}
+    .home-text{width:100%;margin-bottom:50px;}
+    .home-text h1{font-size:42px;}
+    .banner{width:100%;}}
+
+/* ===================================== */
+/* KATEGORI */
+/* ===================================== */
+
+#kategori{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:42px;
+    color:#2c5d8a;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#6483a0;
+}
+
+/* GRID */
+.kategori-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.kategori-card{
+    background:white;
+    border-radius:20px;
+    padding:30px 20px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.kategori-card:hover{
+    transform:translateY(-8px);
+}
+
+/* ICON */
+.kategori-icon{
+    width:90px;
+    height:90px;
+    background:#dbeeff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    margin-bottom:20px;
+    font-size:40px;
+}
+
+/* TEXT */
+.kategori-card h3{
+    color:#24496e;
+    margin-bottom:15px;
+}
+
+.kategori-card p{
+    color:#6d86a0;
+    line-height:1.6;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+/* BUTTON */
+.kategori-card button{
+    padding:12px 24px;
+    border:none;
+    border-radius:30px;
+    background:#6eb5ff;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:15px;
+}
+
+.kategori-card button:hover{
+    background:#4ea4ff;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:768px){
+    .navbar{flex-direction:column;gap:15px;}
+    .nav-links{gap:15px;}
+
+    #home{flex-direction:column;justify-content:center;text-align:center;padding:100px 8%;}
+    .home-text{width:100%;margin-bottom:50px;}
+    .home-text h1{font-size:42px;}
+    .banner{width:100%;}}
+
+</style>
+
+</head>
+<body>
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script>
+
+let keranjang = [];
+
+// Buka / Tutup Keranjang
+function toggleCart(){
+    document.getElementById("cart").classList.toggle("show");
+}
+
+// Tambah Produk
+function tambah(nama, harga, gambar){
+
+    keranjang.push({
+        nama: nama,
+        harga: harga,
+        gambar: gambar
+    });
+
+    tampil();
+}
+
+// Tampilkan Keranjang
+function tampil(){
+
+    let isi = "";
+    let total = 0;
+
+    keranjang.forEach((item,index)=>{
+
+        total += item.harga;
+
+        isi += `
+        <div class="item">
+
+            <img src="${item.gambar}"
+                 style="width:70px;height:70px;object-fit:cover;border-radius:10px;">
+
+            <div style="flex:1;">
+                <b>${item.nama}</b><br>
+                <span style="color:#4ea4ff;">
+                    Rp ${item.harga.toLocaleString()}
+                </span><br><br>
+
+                <button onclick="hapus(${index})">
+                    Hapus
+                </button>
+            </div>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById("list").innerHTML = isi;
+    document.getElementById("total").innerHTML = total.toLocaleString();
+    document.getElementById("jumlah").innerHTML = keranjang.length;
+
+}
+
+// Hapus Produk
+function hapus(index){
+
+    keranjang.splice(index,1);
+
+    tampil();
+
+}
+
+function bayar(){
+}
+
+function checkout(){
+
+localStorage.setItem(
+"keranjang",
+JSON.stringify(keranjang)
+);
+
+window.location.href="payment.html";
+
+}
+
+</script>
+
+<!-- ========================= -->
+<!-- HOME -->
+<!-- ========================= -->
+
+<div id="cart" class="cart">
+
+    <h2>🛒 Keranjang Belanja</h2>
+
+    <div id="list"></div>
+
+    <div class="total-box">
+
+        <h3>Total : Rp <span id="total">0</span></h3>
+
+<button class="checkout-btn" onclick="checkout()">
+Bayar Sekarang
+</button>
+
+        <button class="close-cart" onclick="toggleCart()">
+            Tutup
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- NAVIGASI -->
+<!-- ========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+    <img src="logo.png" alt="GIA STORE">
+</div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="produk.html">Produk</a>
+        </li>
+
+        <li>
+            <a href="kategori.html">Kategori</a>
+        </li>
+
+        <li>
+            <a href="tentang.html">Tentang</a>
+        </li>
+
+        <li>
+            <a href="kontak.html">Kontak</a>
+        </li>
+
+    </ul>
+
+     <button class="cart-btn" onclick="toggleCart()">
+    🛒 Keranjang (<span id="jumlah">0</span>)
+</button>
+
+</nav>
+
+<!-- ===================================== -->
+<!-- SECTION KATEGORI -->
+<!-- ===================================== -->
+
+<section id="kategori">
+
+    <div class="section-title">
+
+        <h2>Kategori Fashion</h2>
+
+        <p>
+            Pilih kategori fashion favoritmu
+        </p>
+
+    </div>
+
+    <div class="kategori-container">
+
+        <!-- KATEGORI 1 -->
+        <div class="kategori-container">
+
+    <div class="kategori-card">
+        <div class="kategori-icon">👕</div>
+        <h3>Atasan</h3>
+        <p>Koleksi atasan wanita yang lucu dan trendi
+    dengan desain modern dan nyaman dipakai.</p>
+        <a href="kaos.html">
+            <button>Lihat Produk</button>
+        </a>
+    </div>
+
+        <!-- KATEGORI 2 -->
+        <div class="kategori-card">
+        <div class="kategori-icon">👖</div>
+        <h3>Celana</h3>
+        <p>Koleksi Celana Casual dan trendi wanita.</p>
+        <a href="celana.html">
+            <button>Lihat Produk</button>
+        </a>
+    </div>
+
+        <!-- KATEGORI 3 -->
+      <div class="kategori-card">
+        <div class="kategori-icon">🧥</div>
+        <h3>Outerwear</h3>
+        <p> Hoodie dan sweater premium untuk tampilan
+    stylish setiap hari.</p>
+        <a href="outerwear.html">
+            <button>Lihat Produk</button>
+        </a>
+    </div>
+
+
+</section>
+
+<!-- ========================= -->
+<!-- SECTION PRODUK -->
+<!-- ========================= -->
+
+<section id="produk">
+
+    <div class="section-title">
+
+        <h2>Alas Kaki</h2>
+
+        <p>
+            Koleksi sneakers dan sandal untuk
+    melengkapi outfit kamu.
+        </p>
+
+    </div>
+
+    <div class="product-container">
+
+       <!-- PRODUK 8 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="alaskaki10.jpg" alt="Oversize T-Shirt"></div>
+                <div class="product-info">
+                <h3>Sepatu Wanita Kekinian</h3>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 120.000</span>
+                <button onclick="tambah('Sepatu Wanita Kekinian',120000,'alaskaki10.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+<!-- PRODUK 8 -->
+        <div class="product-card">
+           <div class="product-image">
+            <img src="alaskaki9.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Flatshoes</h3>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 65.000</span>
+               <button onclick="tambah('Flatshoes',65000,'alaskaki9.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+<!-- PRODUK 8 -->
+        <div class="product-card">
+           <div class="product-image">
+            <img src="alaskaki8.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Fentofel Korean Style</h3>
+                <p>Lucu Banget gak sihh?? Ayooo buruan belii.</p>
+                <span class="price">Rp 125.000</span>
+                <button onclick="tambah('Sepatu Fentofel Korean Style',125000,'alaskaki8.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+<!-- PRODUK 8 -->
+        <div class="product-card">
+           <div class="product-image">
+            <img src="alaskaki7.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Wanita Kekinian</h3>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 125.000</span>
+                <button onclick="tambah('Sepatu Wanita Kekinian',125000,'alaskaki7.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+<!-- PRODUK 7 -->
+        <div class="product-card">
+           <div class="product-image">
+            <img src="produk7.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sneakers Wanita</h3>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 100.000</span>
+                <button onclick="tambah('Sneaker Wanita',100000,'produk7.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+<!-- PRODUK 8 -->
+        <div class="product-card">
+           <div class="product-image">
+            <img src="alaskaki6.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Fentofel Hitam</h3>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 80.000</span>
+                <button onclick="tambah('Sepatu Fentofel Hitam',80000,'alaskaki6.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card">
+           <div class="product-image"><img src="alaskaki5.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Wanita Kekinian</h3>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 120.000</span>
+                <button onclick="tambah('Sepatu Wanita Kekinian',120000,'alaskaki5.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card">
+           <div class="product-image">
+            <img src="produk8.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sendal Wanita Kekinian</h3>
+                <p>Sendal lucu untuk melengkapi Stylemu.</p>
+                <span class="price">Rp 65.000</span>
+                <button onclick="tambah('Sendal Wanita Kekinian',65000,'produk8.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+ <!-- PRODUK 8 -->
+        <div class="product-card">
+           <div class="product-image">
+            <img src="alaskaki3.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sendal Kondangan Wanita</h3>
+                <p>Sendal lucu untuk melengkapi Stylemu.</p>
+                <span class="price">Rp 95.000</span>
+               <button onclick="tambah('Sendal Kondangan Wanita',95000,'alaskaki3.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+<!-- PRODUK 8 -->
+        <div class="product-card">
+           <div class="product-image">
+            <img src="alaskaki2.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Kantor Wanita</h3>
+                <p>Kerja bukan halanganmu untuk tampil stylelist.</p>
+                <span class="price">Rp 110.000</span>
+               <button onclick="tambah('Sepatu Kantor Wanita',100000,'alaskaki1.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+<!-- PRODUK 8 -->
+        <div class="product-card">
+           <div class="product-image">
+            <img src="alaskaki4.jpg" alt="Oversize T-Shirt"></div>
+           <div class="product-info">
+                <h3>Sepatu Fentofel Putih</h3>
+                <p>Gaya mu adalah jiwamu!.</p>
+                <span class="price">Rp 80.000</span>
+                <button onclick="tambah('Sepatu Fentofel Putih',80000,'alaskaki4.jpg')">Tambah ke Keranjang</button>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
